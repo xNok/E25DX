@@ -45,7 +45,7 @@
           <summary>{{ $group.title }}</summary>
           <ul>
             {{ range $index, $page := $group.pages -}}
-              {{ $pageSlug := $page.title | urlize -}}
+              {{ $pageSlug := default ($page.title | urlize) $page.path -}}
               {{ $isActivePage := eq $urlPageSlug $pageSlug -}}
               {{ $href := printf "%s%s/%s/" $.Site.Home.Permalink $.Section $pageSlug -}}
               {{ $hrefPageTitle := $page.title -}}
