@@ -19,14 +19,14 @@
   <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.integrity }}">
 
   {{ partial "favicons.html" . }}
-  {{ partial "analytics" . }}
+  {{ partial "analytics.html" . }}
 </head>
 
 <body>
 
 <div id="content-wrapper">
   <header>
-    <a href="/" class="site-logo">{{ .Site.Title }}</a>
+    <a href="{{ .Site.Home.Permalink }}" class="site-logo">{{ .Site.Title }}</a>
   </header>
 
   <main>
@@ -37,7 +37,7 @@
           <p>{{ .Site.Params.home.description }}</p>
         </header>
         <div>
-          <a href="{{ .Site.Params.home.getStartedPath }}" class="btn">{{ i18n "getStarted" }}</a>
+          <a href="{{ .Site.Home.Permalink }}{{ .Site.Params.home.getStartedPath }}" class="btn">{{ i18n "getStarted" }}</a>
           <a href="https://github.com/{{ .Site.Params.project.github.repo }}" target="_blank" class="btn">GitHub</a>
         </div>
       </div>
